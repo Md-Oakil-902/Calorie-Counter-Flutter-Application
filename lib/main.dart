@@ -1,4 +1,6 @@
+import 'package:calorie_counter/pages/personal_information/gender_selection.dart';
 import 'package:calorie_counter/pages/splash_screen.dart';
+import 'package:calorie_counter/utils/responsive.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -10,11 +12,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
+    return LayoutBuilder(
+      builder: (context, constraints) {
 
-      home: SplashScreen(),
-
+       Responsive.init(context);
+        return MaterialApp(
+          debugShowCheckedModeBanner: false,
+          home: GenderSelection(),
+        );
+      },
     );
   }
 }

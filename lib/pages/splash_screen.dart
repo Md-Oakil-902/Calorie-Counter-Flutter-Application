@@ -12,30 +12,27 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
   @override
-  void initState(){
+  void initState() {
     super.initState();
 
-    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-      statusBarColor: Colors.white
-    ));
-
+    SystemChrome.setSystemUIOverlayStyle(
+      SystemUiOverlayStyle(statusBarColor: Colors.white),
+    );
   }
+
 
   @override
   Widget build(BuildContext context) {
-
-    Responsive.init(context);
 
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
         child: Column(
           children: [
-
             Align(
               alignment: Alignment.topRight,
               child: Padding(
-                padding:  EdgeInsets.symmetric(horizontal: Responsive.wp(5)),
+                padding: EdgeInsets.symmetric(horizontal: Responsive.wp(5)),
                 child: ElevatedButton(
                   onPressed: () {},
                   child: Row(
@@ -49,7 +46,7 @@ class _SplashScreenState extends State<SplashScreen> {
                         height: Responsive.hp(3),
                         width: Responsive.wp(3),
                       ),
-                       SizedBox(width: Responsive.wp(1)), //language name
+                      SizedBox(width: Responsive.wp(1)), //language name
                       Text("EN"),
                     ],
                   ),
@@ -71,24 +68,39 @@ class _SplashScreenState extends State<SplashScreen> {
               children: [
                 Text(
                   "Calorie Tracking",
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: Responsive.hp(4)),
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: Responsive.hp(4),
+                  ),
                 ),
                 Text(
                   "Made Easy",
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: Responsive.hp(4)),
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: Responsive.hp(4),
+                  ),
                 ),
               ],
             ),
 
-             SizedBox(height: Responsive.hp(1)),
+            SizedBox(height: Responsive.hp(1)),
 
             ElevatedButton(
               onPressed: () {},
               style: ElevatedButton.styleFrom(
-                padding:  EdgeInsets.symmetric(horizontal: Responsive.wp(30), vertical: Responsive.hp(1.5)),
+                padding: EdgeInsets.symmetric(
+                  horizontal: Responsive.wp(30),
+                  vertical: Responsive.hp(1.5),
+                ),
                 backgroundColor: Colors.black,
               ),
-              child: Text("Get Started", style: TextStyle(color: Colors.white, fontSize: Responsive.hp(2))),
+              child: Text(
+                "Get Started",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: Responsive.hp(2),
+                ),
+              ),
             ),
             TextButton(
               onPressed: () {},
@@ -103,21 +115,9 @@ class _SplashScreenState extends State<SplashScreen> {
                 ],
               ),
             ),
-
           ],
         ),
       ),
     );
   }
 }
-
-
-
-
-
-
-
-
-
-
-
