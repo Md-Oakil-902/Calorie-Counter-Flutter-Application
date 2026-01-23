@@ -1,5 +1,7 @@
+
 import 'package:calorie_counter/pages/personal_information/date_of_birth.dart';
 import 'package:calorie_counter/pages/personal_information/gender_selection.dart';
+import 'package:calorie_counter/pages/personal_information/height_weight.dart';
 import 'package:calorie_counter/pages/splash_screen.dart';
 import 'package:calorie_counter/utils/responsive.dart';
 import 'package:flutter/material.dart';
@@ -19,7 +21,7 @@ class MyApp extends StatelessWidget {
        Responsive.init(context);
         return MaterialApp(
           debugShowCheckedModeBanner: false,
-          home: DateOfBirth(),
+          home: SplashScreen(),
         );
       },
     );

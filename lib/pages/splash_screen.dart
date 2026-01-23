@@ -1,3 +1,4 @@
+import "package:calorie_counter/pages/personal_information/gender_selection.dart";
 import "package:flutter/material.dart";
 import "package:flutter/services.dart";
 import "package:lottie/lottie.dart";
@@ -20,9 +21,9 @@ class _SplashScreenState extends State<SplashScreen> {
     );
   }
 
-
   @override
   Widget build(BuildContext context) {
+    Responsive.init(context);
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -86,7 +87,9 @@ class _SplashScreenState extends State<SplashScreen> {
             SizedBox(height: Responsive.hp(1)),
 
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => GenderSelection() ));
+              },
               style: ElevatedButton.styleFrom(
                 padding: EdgeInsets.symmetric(
                   horizontal: Responsive.wp(30),
