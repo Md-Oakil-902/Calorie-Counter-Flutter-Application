@@ -1,3 +1,4 @@
+import "package:calorie_counter/pages/personal_information/date_of_birth.dart";
 import "package:calorie_counter/utils/heightPickerMetricUnit.dart";
 import "package:calorie_counter/utils/weightPickerInImperialUnit.dart";
 import "package:calorie_counter/utils/weightPickerInMetric.dart";
@@ -154,7 +155,9 @@ class _HeightWeightState extends State<HeightWeight> {
 
                 color: Colors.white12,
                 child: ElevatedButton(
-                  onPressed: (){}
+                  onPressed: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => DateOfBirth()));
+                  }
                   ,
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.black,

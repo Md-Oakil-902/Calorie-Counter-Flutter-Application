@@ -2,22 +2,19 @@ import "package:calorie_counter/utils/responsive.dart";
 import "package:flutter/cupertino.dart";
 import "package:flutter/material.dart";
 
-
 class WeightPickerInImperialUnit extends StatefulWidget {
-
-
   const WeightPickerInImperialUnit({super.key});
 
   @override
-  State<WeightPickerInImperialUnit> createState() => _WeightPickerInImperialUnitState();
+  State<WeightPickerInImperialUnit> createState() =>
+      _WeightPickerInImperialUnitState();
 }
 
-class _WeightPickerInImperialUnitState extends State<WeightPickerInImperialUnit> {
-
-  int selectedWeight =55;
+class _WeightPickerInImperialUnitState
+    extends State<WeightPickerInImperialUnit> {
+  int selectedWeight = 122;
   int startWeight = 25;
   int endWeight = 300;
-
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +34,17 @@ class _WeightPickerInImperialUnitState extends State<WeightPickerInImperialUnit>
         },
         children: List.generate(
           endWeight - startWeight + 1,
-              (i) => Center(child: Text("${startWeight + i} lbs", style: TextStyle(fontSize: Responsive.hp(2)))),
+          (i) => Center(
+            child: Text(
+              "${startWeight + i} lbs",
+              style: TextStyle(
+                fontSize: Responsive.hp(2),
+                fontWeight: selectedWeight == (startWeight + i)
+                    ? FontWeight.bold
+                    : FontWeight.normal,
+              ),
+            ),
+          ),
         ),
       ),
     );

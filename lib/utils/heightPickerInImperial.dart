@@ -29,7 +29,9 @@ class _HeightPickerInImperialState extends State<HeightPickerInImperial> {
 
           child: CupertinoPicker(
             itemExtent: 40,
-            scrollController: FixedExtentScrollController(initialItem: selectedHeightInFeet - startHeightInFeet),
+            scrollController: FixedExtentScrollController(
+              initialItem: selectedHeightInFeet - startHeightInFeet,
+            ),
             onSelectedItemChanged: (index) {
               setState(() {
                 selectedHeightInFeet = startHeightInFeet + index;
@@ -37,12 +39,20 @@ class _HeightPickerInImperialState extends State<HeightPickerInImperial> {
             },
             children: List.generate(
               endHeightInFeet - startHeightInFeet + 1,
-              (i) => Center(child: Text("${startHeightInFeet + i} ft", style: TextStyle(fontSize: Responsive.hp(2)),)),
+              (i) => Center(
+                child: Text(
+                  "${startHeightInFeet + i} ft",
+                  style: TextStyle(
+                    fontSize: Responsive.hp(2),
+                    fontWeight: selectedHeightInFeet == (startHeightInFeet + i)
+                        ? FontWeight.bold
+                        : FontWeight.normal,
+                  ),
+                ),
+              ),
             ),
           ),
         ),
-
-
 
         const SizedBox(width: 2),
         Container(
@@ -51,7 +61,9 @@ class _HeightPickerInImperialState extends State<HeightPickerInImperial> {
           width: Responsive.wp(20),
           child: CupertinoPicker(
             itemExtent: 40,
-            scrollController: FixedExtentScrollController(initialItem: selectedHeightInInch - startHeightInInch),
+            scrollController: FixedExtentScrollController(
+              initialItem: selectedHeightInInch - startHeightInInch,
+            ),
             onSelectedItemChanged: (index) {
               setState(() {
                 selectedHeightInInch = startHeightInInch + index;
@@ -59,14 +71,20 @@ class _HeightPickerInImperialState extends State<HeightPickerInImperial> {
             },
             children: List.generate(
               endHeightInInch - startHeightInInch + 1,
-              (i) => Center(child: Text("${startHeightInInch + i} in", style: TextStyle(fontSize: Responsive.hp(2)))),
+              (i) => Center(
+                child: Text(
+                  "${startHeightInInch + i} in",
+                  style: TextStyle(
+                    fontSize: Responsive.hp(2),
+                    fontWeight: selectedHeightInInch == (startHeightInInch + i)
+                        ? FontWeight.bold
+                        : FontWeight.normal,
+                  ),
+                ),
+              ),
             ),
           ),
         ),
-
-
-
-
       ],
     );
   }

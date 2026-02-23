@@ -1,22 +1,20 @@
-import 'package:calorie_counter/pages/personal_information/date_of_birth.dart';
-import 'package:calorie_counter/pages/personal_information/height_weight.dart';
-import 'package:calorie_counter/utils/option_selector.dart';
-import 'package:calorie_counter/utils/responsive.dart';
-import 'package:flutter/material.dart';
+import "package:calorie_counter/utils/workOutWeekOptionSelector.dart";
+import "package:flutter/material.dart";
 
-class GenderSelection extends StatefulWidget {
-  const GenderSelection({super.key});
+import "../../utils/responsive.dart";
+
+class WorkOutPerWeek extends StatefulWidget {
+  const WorkOutPerWeek({super.key});
 
   @override
-  State<GenderSelection> createState() => _GenderSelectionState();
+  State<WorkOutPerWeek> createState() => _WorkOutPerWeekState();
 }
 
-class _GenderSelectionState extends State<GenderSelection> {
-  String? selectedGender;
-
+class _WorkOutPerWeekState extends State<WorkOutPerWeek> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.all(Responsive.hp(3)),
@@ -49,14 +47,14 @@ class _GenderSelectionState extends State<GenderSelection> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      "Choose your Gender",
+                      "How many workouts\ndo you do per week?",
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
-                        fontSize: Responsive.hp(4.3),
+                        fontSize: Responsive.hp(4),
                       ),
                     ),
                     Text(
-                      "This will be used to calibrate your custom \nplan.",
+                      "This will be used to calibrate your custom\nplan.",
                       style: TextStyle(
                         color: Colors.grey.shade600,
                         fontSize: Responsive.hp(1.9),
@@ -75,43 +73,32 @@ class _GenderSelectionState extends State<GenderSelection> {
 
                     //  crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      OptionSelector(
-                        image: null,
-                        text: "Male",
-                        isSelected: selectedGender == "Male",
-                        onTap: () {
-                          setState(() {
-                            selectedGender = "Male";
-                          });
-                        },
+                      WorkoutWeekOptionSelector(
+                        image: "lib/images/onedot.png",
+                        workoutDay: "0-2",
+                        text: "Workout now and then", onTap: () {},
                       ),
-                      SizedBox(height: Responsive.hp(2)),
-                      OptionSelector(
-                        image: null,
-                        text: "Female",
-                        isSelected: selectedGender == "Female",
-                        onTap: () {
-                          setState(() {
-                            selectedGender = "Female";
-                          });
-                        },
-                      ),
-                      SizedBox(height: Responsive.hp(2)),
 
-                      OptionSelector(
-                        image: null,
-                        text: "Other",
-                        isSelected: selectedGender == "Other",
-                        onTap: () {
-                          setState(() {
-                            selectedGender = "Other";
-                          });
-                        },
+                      SizedBox(height: Responsive.hp(3),),
+
+                      WorkoutWeekOptionSelector(
+                        image: "lib/images/threedot.png",
+                        workoutDay: "3-5",
+                        text: "A few workouts per week", onTap: () {  },
+                      ),
+                      SizedBox(height: Responsive.hp(3),),
+
+                      WorkoutWeekOptionSelector(
+                        image: "lib/images/sixdot.png",
+                        workoutDay: "6+",
+                        text: "Dedicated athlete", onTap: () {  },
                       ),
                     ],
                   ),
                 ),
               ),
+
+
 
               //  Spacer(),
               Container(
@@ -120,14 +107,11 @@ class _GenderSelectionState extends State<GenderSelection> {
 
                 color: Colors.white12,
                 child: ElevatedButton(
-                  onPressed: selectedGender == null ? null : () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => HeightWeight()));
+                  onPressed: () {
+
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: selectedGender != null
-                        ? Colors.black
-                        : Colors.grey,
+                    backgroundColor: Colors.black,
 
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadiusGeometry.circular(10),
@@ -136,9 +120,9 @@ class _GenderSelectionState extends State<GenderSelection> {
                   child: Text(
                     "Continue",
                     style: TextStyle(
-                      color: selectedGender == null
-                          ? Colors.black
-                          : Colors.white,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: Responsive.hp(1.8),
                     ),
                   ),
                 ),
